@@ -1,0 +1,73 @@
+.post-detail-container {
+    padding: 20px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-button, .delete-button {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.comment-section {
+    margin-top: 20px;
+}
+
+.comment-input-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.add-comment-button {
+    background-color: transparent;
+    border: none;
+    color: #007BFF;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.comment-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.comment-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.delete-comment-button {
+    background-color: transparent;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.back-button {
+    margin-top: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+}

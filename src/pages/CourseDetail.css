@@ -1,0 +1,86 @@
+/* CourseDetail.css */
+
+/* 전체 컨테이너 스타일 */
+.course-detail {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+/* 제목 스타일 */
+.course-detail h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #3f51b5;
+  text-align: center;
+}
+
+/* 텍스트 스타일 */
+.course-detail p {
+  font-size: 1rem;
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+/* 강조 텍스트 */
+.course-detail p strong {
+  color: #333;
+  font-weight: bold;
+}
+
+/* 버튼 스타일 */
+.enroll-button, .delete-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 10px 5px 0 0;
+  display: inline-block;
+  width: calc(50% - 5px); /* 버튼 간격 조정 */
+}
+
+/* 신청 버튼 색상 */
+.enroll-button {
+  background-color: #93abbd;
+  color: white;
+}
+
+.enroll-button:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+}
+
+/* 삭제 버튼 색상 */
+.delete-button {
+  background-color: #888c9a;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #e53935;
+}
+
+/* 버튼 호버 스타일 */
+.enroll-button:hover:not(:disabled) {
+  background-color: #388e3c;
+}
+
+/* 반응형 처리 */
+@media (max-width: 600px) {
+  .course-detail {
+      padding: 15px;
+  }
+
+  .enroll-button, .delete-button {
+      width: 100%;
+      margin: 10px 0;
+  }
+}

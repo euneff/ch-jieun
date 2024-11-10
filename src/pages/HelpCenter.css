@@ -1,0 +1,80 @@
+.board-container {
+  width: 80%;
+  margin-bottom: 50px;
+  text-align: center;
+  display:block;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.post-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 50px;
+}
+
+.post-table th, .post-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* 가로선만 보이도록 설정 */
+}
+
+.post-table th {
+  font-weight: bold;
+}
+
+.post-table th:first-child, .post-table td:first-child {
+  text-align: center;
+  width: 10%;
+}
+
+.post-table td:nth-child(2) {
+  cursor: pointer;
+}
+
+.post-table .author {
+  text-align: right; /* 작성자를 오른쪽으로 정렬 */
+}
+
+.post-row:hover td:nth-child(2) {
+  color: #333;
+}
+
+.no-posts-message {
+  text-align: center;
+  padding: 20px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.pagination .active {
+  background-color: #333;
+  color: white;
+}
+
+.write-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

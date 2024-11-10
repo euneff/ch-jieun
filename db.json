@@ -1,0 +1,279 @@
+{
+  "posts": [
+    {
+      "id": "73c1",
+      "title": "1",
+      "content": "1",
+      "author": "Anonymous"
+    },
+    {
+      "id": "83a2",
+      "title": "13",
+      "content": "615",
+      "author": "1"
+    },
+    {
+      "id": "5b8b",
+      "title": "ㄴㄹ",
+      "content": "ㄴㄹ",
+      "author": "Anonymous"
+    },
+    {
+      "id": "ed4e",
+      "title": "ㅌ",
+      "content": "ㅌ",
+      "author": "Anonymous"
+    },
+    {
+      "id": "398a",
+      "title": "ㄱ",
+      "content": "ㄱ",
+      "author": "Anonymous"
+    },
+    {
+      "id": "a69c",
+      "title": "ㅇㄹ",
+      "content": "ㅇㄹ",
+      "author": "Anonymous"
+    },
+    {
+      "id": "a9c5",
+      "title": "ㅜ",
+      "content": "ㅜ",
+      "author": "Anonymous"
+    },
+    {
+      "id": "0786",
+      "title": "ㅇㄹ",
+      "content": "ㅇㄹ",
+      "author": "고구마"
+    },
+    {
+      "id": "8e7a",
+      "title": "ㅌ",
+      "content": "ㅌ",
+      "author": "고구마"
+    },
+    {
+      "id": "e8a3",
+      "title": "ㅅ",
+      "content": "ㅅ",
+      "author": "Anonymous"
+    },
+    {
+      "id": "a3ea",
+      "title": "k",
+      "content": "r",
+      "author": "Anonymous"
+    }
+  ],
+  "points": [
+    {
+      "id": "1",
+      "category": "충전",
+      "date": "2024-11-04T10:00:00Z",
+      "amount": 50000,
+      "balance": 150000,
+      "status": "완료"
+    },
+    {
+      "id": "2",
+      "category": "사용",
+      "date": "2024-11-04T12:00:00Z",
+      "amount": -10000,
+      "balance": 130000,
+      "status": "완료"
+    }
+  ],
+  "recharges": [
+    {
+      "id": "1",
+      "accountNumber": "kakao",
+      "amount": 50000,
+      "date": "2023-01-01T12:00:00.000Z"
+    },
+    {
+      "id": "b5e4",
+      "accountNumber": "kakao",
+      "amount": 1.111111111111111e+38,
+      "date": "2024-11-07T10:20:05.940Z",
+      "userId": "c4b9"
+    },
+    {
+      "id": "4d43",
+      "accountNumber": "kakao",
+      "amount": 3434,
+      "date": "2024-11-09T03:46:29.821Z",
+      "userId": "acdc"
+    },
+    {
+      "id": "6acd",
+      "accountNumber": "kakao",
+      "amount": 20000,
+      "date": "2024-11-10T05:36:09.757Z",
+      "userId": "7285"
+    }
+  ],
+  "exchanges": [
+    {
+      "id": "1",
+      "bank": "카카오뱅크",
+      "points": 50000,
+      "date": "2023-01-01T12:00:00.000Z"
+    },
+    {
+      "id": "dd90",
+      "bank": "토스",
+      "points": 34,
+      "date": "2024-11-09T03:46:38.596Z",
+      "userId": "acdc"
+    }
+  ],
+  "users": [
+    {
+      "id": "c4b9",
+      "email": "1",
+      "password": "1",
+      "name": "1",
+      "phoneNumber": "1"
+    },
+    {
+      "email": "goguma@naver.com",
+      "name": "고구마",
+      "phoneNumber": "010-1234-5678",
+      "password": "12",
+      "id": "7285"
+    }
+  ],
+  "course": [
+    {
+      "id": "1731046040320",
+      "title": "ㄻㅇㄴ",
+      "type": "ㄹㄴㅁㄹㅇ",
+      "progress": "ㄹㄴㅇㄻ",
+      "professor": "ㅁㄴㄴ",
+      "location": "ㄴㄹㅇㄴ",
+      "startDate": "123213-12-12",
+      "endDate": "31231-02-12",
+      "category": "3123",
+      "description": "123",
+      "authorId": "c4b9",
+      "authorName": "1",
+      "enrolledUsers": [
+        "c4b9"
+      ],
+      "status": "진행중"
+    },
+    {
+      "id": "1731126492488",
+      "title": "집가기",
+      "type": "걷기",
+      "progress": "100%",
+      "professor": "없음",
+      "location": "집",
+      "startDate": "2024-11-10",
+      "duration": "7",
+      "category": "집",
+      "description": "집",
+      "authorId": "7285",
+      "authorName": "고구마",
+      "endDate": "2024-11-17",
+      "status": "진행중",
+      "enrolledUsers": [
+        "7285"
+      ]
+    },
+    {
+      "id": "1731183171727",
+      "title": "운동하기",
+      "type": "운동",
+      "money": "2만원",
+      "progress": "49",
+      "location": "",
+      "startDate": "2024-11-18",
+      "duration": "7",
+      "category": "운동",
+      "description": "운동",
+      "authorId": "7285",
+      "authorName": "고구마",
+      "endDate": "2024-11-25",
+      "status": "대기 중",
+      "enrolledUsers": [
+        "7285"
+      ]
+    },
+    {
+      "id": "1731212146280",
+      "title": "명상",
+      "type": "쉼",
+      "money": "10,000",
+      "progress": "40",
+      "location": "",
+      "startDate": "2024-11-29",
+      "duration": "7",
+      "category": "쉼",
+      "description": "명상",
+      "authorId": "7285",
+      "authorName": "고구마",
+      "endDate": "2024-12-06",
+      "status": "대기 중",
+      "enrolledUsers": [
+        "7285"
+      ]
+    },
+    {
+      "id": "1731216398549",
+      "title": "운동하기",
+      "type": "걷기",
+      "money": "10,000",
+      "progress": "0%",
+      "startDate": "2024-11-15",
+      "duration": "30",
+      "category": "집",
+      "description": "ㅐ",
+      "authorId": "7285",
+      "authorName": "고구마",
+      "endDate": "2024-12-15",
+      "status": "대기 중",
+      "enrolledUsers": [
+        "7285"
+      ]
+    }
+  ],
+  "inProgressChallenges": [
+    {
+      "id": "1",
+      "title": "30일 운동 챌린지"
+    },
+    {
+      "id": "2",
+      "title": "독서 100페이지"
+    }
+  ],
+  "title": [
+    {
+      "id": "a9c5",
+      "title": "ㅜ",
+      "content": "ㅜ",
+      "author": "Anonymous"
+    },
+    {
+      "id": "6461",
+      "title": "df",
+      "content": "df",
+      "author": "Anonymous"
+    },
+    {
+      "id": "cd33",
+      "title": "ee",
+      "content": "ee",
+      "author": "Anonymous"
+    },
+    {
+      "id": "5f90",
+      "title": "일요일",
+      "content": "일요일",
+      "author": "Anonymous"
+    }
+  ]
+}
