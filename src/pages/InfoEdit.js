@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './InfoEdit.css';
 
 const InfoEdit = () => {
@@ -15,6 +16,7 @@ const InfoEdit = () => {
   const [file, setFile] = useState(null);
   const storedUser = JSON.parse(localStorage.getItem('user')); // 로그인된 사용자 정보
   const userId = storedUser?.id; // user 객체의 id 값 사용
+  const navigate = useNavigate(); // navigate 함수 생성
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -61,6 +63,7 @@ const InfoEdit = () => {
         image: userInfo.image
       });
       alert('정보가 수정되었습니다.');
+      navigate('/mypage'); // 정보 수정 완료 후 마이페이지로 이동
     } catch (error) {
       console.error('Error updating user info:', error);
       alert('정보 수정에 실패했습니다.');

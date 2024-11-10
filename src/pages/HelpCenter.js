@@ -43,7 +43,7 @@ const MessageBoard = () => {
       {messages.map((message) => (
         <Message key={message.id} message={message} />
       ))}
-      <button onClick={() => setIsFormVisible(!isFormVisible)} style={{ marginTop: "10px" }}>
+      <button onClick={() => navigate('/helpPost')} style={{ marginTop: "10px" }}>
         문의 작성
       </button>
       {isFormVisible && <MessageForm onAddMessage={addMessage} />}

@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -28,22 +27,14 @@ import HelpPost from "./pages/HelpPost";
 import Review from "./pages/Review";
 
 function App() {
-    const [userName, setUserName] = useState('');
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [parsed, setParsed] = useState(null);
-    const [courses, setCourses] = useState([]); // courses 데이터를 위한 상태 추가
+    // 초기값을 localStorage에서 직접 가져와 설정
+    const [userName, setUserName] = useState(() => JSON.parse(localStorage.getItem('user'))?.name || '');
+    const [isLoggedIn, setIsLoggedIn] = useState(() => localStorage.getItem("isLoggedIn") === "true");
+    const [parsed, setParsed] = useState(() => JSON.parse(localStorage.getItem('user')));
+    const [courses, setCourses] = useState([]);
 
+    // useEffect는 필요한 데이터를 가져오는 데만 사용
     useEffect(() => {
-        const storedUser = localStorage.getItem("user");
-        const storedIsLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-
-        if (storedUser && storedIsLoggedIn) {
-            const user = JSON.parse(storedUser);
-            setParsed(user);
-            setUserName(user.name);
-            setIsLoggedIn(true);
-        }
-
         const fetchCourses = async () => {
             try {
                 const response = await axios.get('http://localhost:5000/course');
@@ -102,8 +93,6 @@ function App() {
                         <Route path="infoEdit" element={<InfoEdit />}/>
                         <Route path="helpCenter" element={<HelpCenter />} />
                         <Route path="helpPost" element={<HelpPost />} />
-
-                    
                     </Route>
 
                     {/* 종료된 도전 페이지 라우트 추가 */}
