@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
@@ -27,13 +27,12 @@ import HelpPost from "./pages/HelpPost";
 import Review from "./pages/Review";
 
 function App() {
-    // 초기값을 localStorage에서 직접 가져와 설정
     const [userName, setUserName] = useState(() => JSON.parse(localStorage.getItem('user'))?.name || '');
     const [isLoggedIn, setIsLoggedIn] = useState(() => localStorage.getItem("isLoggedIn") === "true");
     const [parsed, setParsed] = useState(() => JSON.parse(localStorage.getItem('user')));
     const [courses, setCourses] = useState([]);
+    const location = useLocation();
 
-    // useEffect는 필요한 데이터를 가져오는 데만 사용
     useEffect(() => {
         const fetchCourses = async () => {
             try {
@@ -66,13 +65,13 @@ function App() {
     };
 
     return (
-        <BrowserRouter>
+        <>
             <Nav className={styles.nav} isLoggedIn={isLoggedIn} onLogout={handleLogout} />
             <div className={styles.body}>
                 <Routes>
-                    <Route path="/" element={<><HomePage /><Footer className={styles.footer} /></>} />
+                    <Route path="/" element={<HomePage />} />
                     <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
-                    <Route path="/signup" element={<><SignupPage /><Footer className={styles.footer} /></>} />
+                    <Route path="/signup" element={<SignupPage />} />
                     <Route path="/course" element={<CoursesPage courses={courses} />} />
                     <Route path="/course/:courseId" element={<CourseDetail />} />
                     <Route path="/create-course" element={<CreateCoursePage />} />
@@ -99,9 +98,19 @@ function App() {
                     <Route path="/completedchallenges" element={<PrivateRoute isLoggedIn={isLoggedIn}><CompletedChallenges /></PrivateRoute>} />
                 </Routes>
             </div>
-            <Footer className={styles.footer} />
+
+            {/* 메인 페이지에서만 Footer 표시 */}
+            {location.pathname === '/' && <Footer className={styles.footer} />}
+        </>
+    );
+}
+
+function Root() {
+    return (
+        <BrowserRouter>
+            <App />
         </BrowserRouter>
     );
 }
 
-export default App;
+export default Root;

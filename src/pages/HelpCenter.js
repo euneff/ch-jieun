@@ -14,6 +14,7 @@ function HelpCenter() {
 
 // MessageBoard 컴포넌트: 메시지 목록과 폼을 관리
 const MessageBoard = () => {
+  const navigate = useNavigate();
   const [messages, setMessages] = useState([
     {
       id: 1,
@@ -43,7 +44,7 @@ const MessageBoard = () => {
       {messages.map((message) => (
         <Message key={message.id} message={message} />
       ))}
-      <button onClick={() => navigate('/helpPost')} style={{ marginTop: "10px" }}>
+      <button onClick={() => navigate('/mypage/helpPost')} style={{ marginTop: "10px" }}>
         문의 작성
       </button>
       {isFormVisible && <MessageForm onAddMessage={addMessage} />}
