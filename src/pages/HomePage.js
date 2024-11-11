@@ -11,7 +11,7 @@ function HomePage() {
         <>
             <div className={styles.bg} />
             <Container className={styles.container}>
-                <div className={styles.texts}>
+              <div className={styles.texts}>
                     <h1 className={styles.heading}>
                         <Lined>도전을 더욱 가치있게,</Lined>
                         <br />
