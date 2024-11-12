@@ -1,14 +1,89 @@
 .post-detail-container {
+    width: 80%;
+    margin-bottom: 50px;
     padding: 20px;
+    border: 1px ;
+    border-radius: 8px;
+    max-width: 1200px; /* 필요한 경우, 중앙 배치를 위해 최대 너비를 제한 */
+    margin: 0 auto; /* 가로로 중앙에 정렬 */
+    min-height: 100vh; /* 화면 전체 높이 확보 */
+    
+}
+
+.post-header {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.pp{
+    min-width: 80px; /* 라벨의 최소 너비를 설정해 정렬 유지 */
+    margin-right: 10px;
+    text-align: left;
+    color: #333;
+    font-weight: bold;
+}
+
+.post-header-row {
+    display: flex;
+    justify-content: flex-start;
+    padding: 15px 0px 14px 18px;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #e0e0e0;
+
+}
+
+.post-title, .post-author, .post-date {
+    color: #555;
+    font-weight: normal;
+    margin-right: 20px;
+    
+}
+
+.post-content {
+    font-size: 16px;
+    color: #333;
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .button-group {
     display: flex;
+    justify-content: right;
     gap: 10px;
+    padding: 20px 0;
+    width:150px;
+    height: 100px;
 }
 
 .edit-button, .delete-button {
     padding: 8px 16px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    
+}
+
+.edit-button {
+    background-color: #000;
+    color: #fff;
+    
+    
+}
+
+.delete-button {
+    background-color: #fff;
+    color: #333;
+    
+    
+}
+
+.back-button {
+    padding: 8px 16px;
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     cursor: pointer;
 }
 
@@ -61,13 +136,7 @@
 .delete-comment-button {
     background-color: transparent;
     border: none;
-    color: red;
+    color: rgb(4, 4, 4);
     cursor: pointer;
     font-size: 14px;
-}
-
-.back-button {
-    margin-top: 20px;
-    padding: 8px 16px;
-    cursor: pointer;
 }

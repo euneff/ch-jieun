@@ -90,9 +90,24 @@ const PostDetail = ({ userName }) => {
 
     return (
         <div className="post-detail-container">
-            <h2>{post.title}</h2>
-            <p>{post.content}</p>
-            <p>작성자: {post.author}</p>
+            <div className="post-header">
+                <div className="post-header-row">
+                    <span>제목</span>
+                    <span className="post-title">{post.title}</span>
+                </div>
+                <div className="post-header-row">
+                    <span>작성자</span>
+                    <span className="post-author">{post.author}</span>
+                </div>
+                <div className="post-header-row">
+                    <span>작성일</span>
+                    <span className="post-date">{post.createdAt}</span>
+                </div>
+            </div>
+
+            <div className="post-content">
+                <p>{post.content}</p>
+            </div>
 
             {userName === post.author && (
                 <div className="button-group">
@@ -101,7 +116,6 @@ const PostDetail = ({ userName }) => {
                 </div>
             )}
 
-            {/* 댓글 입력 폼 */}
             <div className="comment-section">
                 <h3>댓글 {comments.length}개</h3>
                 <div className="comment-input-container">
@@ -117,7 +131,6 @@ const PostDetail = ({ userName }) => {
                 </div>
             </div>
 
-            {/* 댓글 리스트 */}
             <ul className="comment-list">
                 {comments.map(comment => (
                     <li key={comment.id} className="comment-item">
@@ -135,7 +148,7 @@ const PostDetail = ({ userName }) => {
                 ))}
             </ul>
 
-            <button onClick={handleBack} className="back-button">뒤로 가기</button>
+            <button onClick={handleBack} className="back-button">목록</button>
         </div>
     );
 };
