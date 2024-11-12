@@ -92,15 +92,15 @@ const PostDetail = ({ userName }) => {
         <div className="post-detail-container">
             <div className="post-header">
                 <div className="post-header-row">
-                    <span>제목</span>
+                    <span className="pp">p제목</span>
                     <span className="post-title">{post.title}</span>
                 </div>
                 <div className="post-header-row">
-                    <span>작성자</span>
+                    <span className="pp">작성자</span>
                     <span className="post-author">{post.author}</span>
                 </div>
                 <div className="post-header-row">
-                    <span>작성일</span>
+                    <span className="pp">작성일</span>
                     <span className="post-date">{post.createdAt}</span>
                 </div>
             </div>

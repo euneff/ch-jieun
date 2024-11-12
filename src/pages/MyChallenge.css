@@ -1,84 +1,98 @@
-/* MyChallenges.css */
-
 /* 전체 컨테이너 스타일 */
 .my-challenges {
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
-  text-align: center;
-  background-color:#EAEDEF;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
 }
 
-/* 제목 스타일 */
+/* 챌린지 내역 제목 스타일 */
 .my-challenges h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* 요약 통계 표시 스타일 */
+.summary {
+  font-size: 1rem;
+  color: #9c27b0;
   margin-bottom: 20px;
-  color: #333;
-  text-align: center;
 }
 
-/* 도전 리스트 스타일 */
-.my-challenges ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* 각 도전 아이템 스타일 */
+/* 도전 아이템 스타일 */
 .my-challenges li {
+  display: flex;
+  align-items: center;
   background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
   margin-bottom: 16px;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.my-challenges li:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+/* 타임라인 스타일 */
+.timeline {
+  width: 1px;
+  height: 50px;
+  background-color: #333;
+  position: relative;
+  margin-right: 20px;
 }
 
-/* 링크 스타일 */
-.my-challenges li a {
-  text-decoration: none;
-  color: #333;
-  display: block;
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: #333;
+  border-radius: 50%;
+  transform: translateY(-50%);
 }
 
-/* 도전 제목 스타일 */
-.my-challenges li h3 {
-  font-size: 1.5rem;
-  margin: 0 0 8px;
+/* 진행률 원형 표시 스타일 */
+.progress-circle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: conic-gradient(#f6abe6 0% 63%, #ead2e1 63% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.progress-circle .progress-text {
+  position: absolute;
+  font-size: 1rem;
+  font-weight: bold;
   color: #7f86e8;
 }
 
-/* 도전 설명 스타일 */
-.my-challenges li p {
-  font-size: 1rem;
-  margin: 0;
-  color: #555;
-  line-height: 1.4;
+/* 챌린지 정보 스타일 */
+.challenge-info {
+  flex-grow: 1;
 }
 
-/* 반응형 처리 */
-@media (max-width: 600px) {
-  .my-challenges {
-      padding: 15px;
-  }
+.challenge-info h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #333;
+}
 
-  .my-challenges h2 {
-      font-size: 1.5rem;
-  }
+.challenge-info .description {
+  font-size: 1rem;
+  color: #777;
+  margin-top: 5px;
+}
 
-  .my-challenges li h3 {
-      font-size: 1.3rem;
-  }
-
-  .my-challenges li p {
-      font-size: 0.9rem;
-  }
+.challenge-info .ranking {
+  font-size: 0.9rem;
+  color: #9c27b0;
+  margin-top: 8px;
+  text-align: left;
 }

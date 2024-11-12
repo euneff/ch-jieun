@@ -50,7 +50,6 @@ function Nav({ isLoggedIn, onLogout }) {
                     {isCategoryOpen && (
                         <ul className={styles.subMenu}>
                             <li><NavLink to="/course" style={getLinkStyle}>도전 목록</NavLink></li>
-                            <li><NavLink to="/todaylaunch" style={getLinkStyle}>오늘의 출시</NavLink></li>
                         </ul>
                     )}
                     <li className={styles.sectionHeader} onClick={toggleCommunity}>
