@@ -42,8 +42,7 @@ function Nav({ isLoggedIn, onLogout }) {
             <div className={`${styles.sidebar} ${isSidebarOpen ? styles.open : ''}`}>
                 <button className={styles.closeButton} onClick={toggleSidebar}>X</button>
                 <ul className={styles.sidebarMenu}>
-                    <li><NavLink to="/new" style={getLinkStyle}>NEW</NavLink></li>
-                    <li><NavLink to="/best" style={getLinkStyle}>BEST</NavLink></li>
+                    <li><NavLink to="/best" style={getLinkStyle}>BEST CHALLENGES</NavLink></li>
                     <li className={styles.sectionHeader} onClick={toggleCategory}>
                         카테고리
                     </li>
@@ -62,6 +61,7 @@ function Nav({ isLoggedIn, onLogout }) {
                             <li><NavLink to="/review" style={getLinkStyle}>후기</NavLink></li>
                             {isLoggedIn && (
                                 <li><NavLink to="/mypage" style={getLinkStyle}>마이페이지</NavLink></li>
+
                             )}
                         </ul>
                     )}

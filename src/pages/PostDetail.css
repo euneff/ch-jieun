@@ -50,7 +50,7 @@
 
 .button-group {
     display: flex;
-    justify-content:end;
+    justify-content: right;
     gap: 10px;
     padding: 20px 0;
     width:150px;

@@ -26,6 +26,7 @@ import HelpCenter from "./pages/HelpCenter";
 import HelpPost from "./pages/HelpPost";
 import Review from "./pages/Review";
 
+
 function App() {
     const [userName, setUserName] = useState(() => JSON.parse(localStorage.getItem('user'))?.name || '');
     const [isLoggedIn, setIsLoggedIn] = useState(() => localStorage.getItem("isLoggedIn") === "true");
@@ -77,6 +78,7 @@ function App() {
                     <Route path="/create-course" element={<CreateCoursePage />} />
                     <Route path="/my-challenge" element={<MyChallenge />} />
                     <Route path="/review" element={<Review />} />
+                    
                     
                     {/* 보호된 라우트 설정 */}
                     <Route path="/freeboard" element={<PrivateRoute isLoggedIn={isLoggedIn}><FreeBoard /></PrivateRoute>} />

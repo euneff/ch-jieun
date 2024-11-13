@@ -1,100 +1,80 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './HelpCenter.css';
+import './FreeBoard.css';
+import axios from 'axios';
 
-// 메인 App 컴포넌트
-function HelpCenter() {
-  return (
-    <div className="App" style={{ padding: "20px" }}>
-      <h1>문의 게시판</h1>
-      <MessageBoard />
-    </div>
-  );
-}
+const FreeBoard = () => {
+    const [posts, setPosts] = useState([]); //posts:데이터를 저장하는 상태변수, 초기값은 null
+    const [currentPage, setCurrentPage] = useState(1);
+    const postsPerPage = 10; //한 페이지당 5개 
+    const navigate = useNavigate(); // useNavigate는 페이지 전환 
 
-// MessageBoard 컴포넌트: 메시지 목록과 폼을 관리
-const MessageBoard = () => {
-  const navigate = useNavigate();
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      user: "지은",
-      date: "2024-09-24 17:31",
-      text: "궁금합니다",
-      orderId: "202409192945931",
-      replies: [
-        {
-          id: 1,
-          user: "관리자",
-          date: "2024-09-24 18:11",
-          text: "감사합니다.",
-        },
-      ],
-    },
-  ]);
-  const [isFormVisible, setIsFormVisible] = useState(false); // 폼 표시 상태
+    useEffect(() => {
+        const fetchPosts = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/posts');
+                setPosts(response.data); //응답데이터를 setPost에 저장
+            } catch (error) {
+                console.error("데이터를 가져오는 중 오류 발생:", error); //에러처리
+            }
+        };
 
-  // 새 메시지를 추가하는 함수
-  const addMessage = (message) => {
-    setMessages([...messages, { ...message, id: Date.now(), replies: [] }]);
-  };
+        fetchPosts();
+    }, []);
 
-  return (
-    <div>
-      {messages.map((message) => (
-        <Message key={message.id} message={message} />
-      ))}
-      <button onClick={() => navigate('/mypage/helpPost')} style={{ marginTop: "10px" }}>
-        문의 작성
-      </button>
-      {isFormVisible && <MessageForm onAddMessage={addMessage} />}
-    </div>
-  );
-};
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
-// Message 컴포넌트: 개별 메시지와 답글 표시
-const Message = ({ message }) => {
-  return (
-    <div style={{ border: "1px solid #ddd", padding: "10px", margin: "10px 0" }}>
-      <p><strong>{message.user}</strong> ({message.date})</p>
-      <p>{message.text}</p>
-      <p>문의번호: {message.orderId}</p>
-      {message.replies.map((reply) => (
-        <div key={reply.id} style={{ marginLeft: "20px", padding: "10px", background: "#f9f9f9" }}>
-          <p><strong>{reply.user}</strong> ({reply.date})</p>
-          <p>{reply.text}</p>
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    return (
+        <div className="board-container">
+            <h1>Q & A</h1>
+            <div className="content">
+                <table className="post-table">
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>제목</th>
+                            <th className="author">작성자</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {currentPosts.length > 0 ? (
+                            currentPosts.map((post, index) => (
+                                <tr 
+                                    key={post.id} 
+                                    onClick={() => navigate(`/post/${post.id}`)}
+                                    className="post-row"
+                                >
+                                    <td>{indexOfFirstPost + index + 1}</td>
+                                    <td>{post.title}</td>
+                                    <td className="author">{post.author}</td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="3" className="no-posts-message">현재 게시된 문의가 없습니다.</td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
+            <div className="pagination">
+                {[...Array(Math.ceil(posts.length / postsPerPage)).keys()].map(num => (
+                    <button 
+                        key={num} 
+                        onClick={() => paginate(num + 1)} 
+                        className={currentPage === num + 1 ? 'active' : ''}
+                    >
+                        {num + 1}
+                    </button>
+                ))}
+            </div>
+            <button className="write-button" onClick={() => navigate('/write')}>문의 작성</button>
         </div>
-      ))}
-    </div>
-  );
+    );
 };
 
-// MessageForm 컴포넌트: 새 메시지를 작성하는 폼
-const MessageForm = ({ onAddMessage }) => {
-  
-const [text, setText] = useState("");
-
-const handleSubmit = (e) => {
-    e.preventDefault();
-    if (text) {
-      onAddMessage({ user: "사용자", date: new Date().toLocaleString(), text });
-      setText("");
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit} style={{ marginTop: "20px" }}>
-      <div>
-        <label>문의 내용</label>
-        <textarea
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          required
-        />
-      </div>
-      <button type="submit">작성 완료</button>
-    </form>
-  );
-};
-
-export default HelpCenter;
+export default FreeBoard;
