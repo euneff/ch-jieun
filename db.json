@@ -232,6 +232,21 @@
       "enrolledUsers": [
         "7285"
       ]
+    },
+    {
+      "id": "1731488392297",
+      "title": "ㅀ",
+      "type": "쉼",
+      "money": "10,000",
+      "progress": "0%",
+      "startDate": "2024-11-15",
+      "duration": "7",
+      "category": "운ㅇ",
+      "description": "ㅇ",
+      "authorId": "7285",
+      "authorName": "고구마",
+      "endDate": "2024-11-22",
+      "status": "대기 중"
     }
   ],
   "inProgressChallenges": [

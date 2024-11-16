@@ -1,73 +1,98 @@
+/* 전체 컨테이너 */
 .mypage {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
-}
+  }
 
-.orderStatusWrapper {
-    margin-bottom: 40px;
+  .my{
     text-align: center;
-}
-
-.orderStatusWrapper h2 {
-    font-size: 24px;
+    margin-bottom: 50px;
+  }
+  
+  /* 환영 메시지 */
+  .welcome-message {
     margin-bottom: 20px;
-    color: #333;
-}
-
-.orderSteps {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    line-height: 1.5;
+  }
+  
+  /* 포인트 요약 */
+  .points-summary {
     display: flex;
-    justify-content: space-around;
-    gap: 20px;
-}
-
-.orderStep {
-    text-align: center;
-    font-size: 16px;
-}
-
-.orderStep p {
-    margin: 0;
-    color: #555;
-}
-
-.orderStep span {
-    display: block;
-    font-size: 24px;
-    font-weight: bold;
-    color: #888;
-    margin-top: 10px;
-}
-
-.menuCards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.menuCard {
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 10px;
     background-color: #f8f8f8;
     border: 1px solid #ddd;
-    padding: 20px;
+    border-radius: 5px;
     text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
-}
-
-.menuCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.menuCard h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.menuCard p {
-    color: #666;
+  }
+  
+  .point-item p:first-child {
     font-size: 14px;
-    margin: 5px 0;
-}
+    color: #666;
+  }
+  
+  .point-item p:last-child {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* 메인 레이아웃 */
+  .main-layout {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  /* 왼쪽: 나의 도전 현황 */
+  .order-status {
+    flex: 1;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .order-status h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .order-status ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .order-status ul li {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  /* 오른쪽: 메뉴 링크 */
+  .menu-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    flex: 2;
+  }
+  
+  .menu-item {
+    padding: 15px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .menu-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
