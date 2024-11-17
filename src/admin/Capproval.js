@@ -5,13 +5,13 @@ import './Capproval.css';
 const courseList = [
     {
         id: 1,
-        title: "11월 도전 3개 완료하기",
+        title: "도전1",
         startDate: "2023-11-01",
         endDate: "2023-11-30",
         users: [
             {
                 id: 1,
-                name: "홍길동",
+                name: "짱구",
                 progress: [
                     { step: 1, status: "pending" },
                     { step: 2, status: "pending" },
@@ -20,7 +20,7 @@ const courseList = [
             },
             {
                 id: 2,
-                name: "김철수",
+                name: "철수",
                 progress: [
                     { step: 1, status: "complete" },
                     { step: 2, status: "pending" },
@@ -31,13 +31,13 @@ const courseList = [
     },
     {
         id: 2,
-        title: "11월 10일 챌린지",
+        title: "도전2",
         startDate: "2023-11-01",
         endDate: "2023-11-10",
         users: [
             {
                 id: 3,
-                name: "이영희",
+                name: "유리",
                 progress: [
                     { step: 1, status: "complete" },
                     { step: 2, status: "complete" },
@@ -97,7 +97,7 @@ const ChallengeApproval = () => {
                         <div className="course-dates">
                             {course.startDate || "11월 1일"} ~ {course.endDate || "11월 30일"}
                         </div>
-                        <p className="course-description">도전을 성공하고 보상금을 얻어보세요!</p>
+                        <p className="course-description">도전!</p>
                     </div>
                 ))}
             </div>
