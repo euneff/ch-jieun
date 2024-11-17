@@ -6,9 +6,23 @@
     left: 0;
     z-index: -1;
     background-image: url('../assets/background1.jpg'); /* 배경 이미지 경로 설정 */
-    background-size :contain; /* 배경 이미지 크기 조정 */
-    background-position: center center; /* 배경 이미지 위치 설정 */
+    background-size :auto 100%;; /* 배경 이미지 크기 조정 */
+    background-position:center; /* 배경 이미지 위치 설정 */
     opacity: 0.9; /* 배경 이미지의 투명도 조정 */
+    opacity: 1;
+    filter: blur(5px); /* 흐림 효과 */
+    animation: fadeInBackground 3s ease-in-out forwards; /* 배경 애니메이션 */
+}
+
+@keyframes fadeInBackground {
+    0% {
+        opacity: 1;
+        filter: blur(10px);
+    }
+    100% {
+        opacity: 0.5; /* 원하는 최종 opacity 값 */
+        filter: blur(0); /* 흐림 효과 해제 */
+    }
 }
 
 .container {
@@ -18,15 +32,33 @@
     z-index: 1; /* 텍스트가 배경 위에 오도록 설정 */
 }
 
+.black {
+    background-color: #494949; /* 검은색 배경 */
+    height: 80px; /* 원하는 높이로 조정 */
+    margin-top: 80px;
+}
+
 .texts {
     display: flex;
     flex: 1 1;
     flex-direction: column;
     justify-content: center;
     margin-right: 100px;
-    color: white; /* 텍스트 색상 변경 */
+    color: rgb(30, 30, 30); /* 텍스트 색상 변경 */
     z-index: 2; /* 텍스트가 배경 위에 오도록 설정 */
+    opacity: 0;
+    animation: fadeInText 3s ease-in-out 1s forwards; /* 텍스트 애니메이션 */
 }
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 
 .heading {
     margin: 15px 0;
@@ -39,7 +71,7 @@
     margin: 15px 0 25px;
     font-size: 18px;
     line-height: 1.61;
-    color: #878787;
+    color: #565454;
     text-align: left;
     letter-spacing: normal;
 }

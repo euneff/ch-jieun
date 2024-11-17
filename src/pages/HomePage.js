@@ -25,6 +25,7 @@ function HomePage() {
                     </div>
                 </div>
             </Container>
+            <div className={styles.black}></div>
         </>
     );
 }
