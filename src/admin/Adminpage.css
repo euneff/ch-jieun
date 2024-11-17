@@ -1,47 +1,43 @@
-.admin-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+.admin-container {
+  display: flex;
+  flex-direction: column; /* 세로 정렬로 변경 */
+  min-height: 100vh;
   font-family: Arial, sans-serif;
 }
 
-.admin-page h1 {
+.ad{
   text-align: center;
-  margin-bottom: 30px;
+  margin-top: 30px;
+  margin-bottom: 50px;
 }
 
-.admin-section {
-  margin-bottom: 40px;
+.admin-sidebar {
+  display: flex;
+  justify-content: center; /* 중앙 정렬 */
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6; /* 가로형 네비바 구분선 */
+  padding: 10px 0; /* 상하 여백 추가 */
 }
 
-.admin-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.admin-section ul {
-  list-style-type: none;
+.admin-sidebar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
   padding: 0;
 }
 
-.admin-section li {
-  background: #f9f9f9;
-  margin-bottom: 10px;
-  padding: 15px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.admin-section li button {
-  margin-left: 10px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
+.admin-sidebar ul li {
+  margin: 0 20px; /* 좌우 간격 */
   cursor: pointer;
+  font-weight: bold;
+  color: #495057;
 }
 
-.admin-section li button:hover {
-  background-color: #ddd;
+.admin-sidebar ul li:hover {
+  color: #007bff;
+}
+
+.admin-content {
+  flex-grow: 1;
+  padding: 20px;
 }

@@ -30,6 +30,7 @@ import QandA from "./admin/QandA";
 import Adminpoint from "./admin/Adminpoint";
 import Exchange from "./admin/Exchange";
 import Capproval from "./admin/Capproval";
+import Adminnav from './admin/Adminnav';
 
 
 function App() {
@@ -90,6 +91,7 @@ function App() {
                     <Route path="/admin/adminpoint" element={<PrivateRoute isLoggedIn={isLoggedIn}><Adminpoint /></PrivateRoute>} />
                     <Route path="/admin/exchange" element={<PrivateRoute isLoggedIn={isLoggedIn}><Exchange /></PrivateRoute>} />
                     <Route path="/admin/capproval" element={<PrivateRoute isLoggedIn={isLoggedIn}><Capproval /></PrivateRoute>} />
+                    <Route path="/admin/adminnav" element={<PrivateRoute isLoggedIn={isLoggedIn}><Adminnav /></PrivateRoute>} />
 
                     {/* 보호된 라우트 설정 */}
                     <Route path="/freeboard" element={<PrivateRoute isLoggedIn={isLoggedIn}><FreeBoard /></PrivateRoute>} />
