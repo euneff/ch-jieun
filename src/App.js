@@ -25,6 +25,11 @@ import InfoEdit from "./pages/InfoEdit";
 import HelpCenter from "./pages/HelpCenter";
 import HelpPost from "./pages/HelpPost";
 import Review from "./pages/Review";
+import Adminpage from './admin/Adminpage';
+import QandA from "./admin/QandA";
+import Adminpoint from "./admin/Adminpoint";
+import Exchange from "./admin/Exchange";
+import Capproval from "./admin/Capproval";
 
 
 function App() {
@@ -79,12 +84,19 @@ function App() {
                     <Route path="/my-challenge" element={<MyChallenge />} />
                     <Route path="/review" element={<Review />} />
                     
-                    
+                    {/* 관리자 라우트 */}
+                    <Route path="/admin/adminpage" element={<PrivateRoute isLoggedIn={isLoggedIn}><Adminpage /></PrivateRoute>} />
+                    <Route path="/admin/qanda" element={<PrivateRoute isLoggedIn={isLoggedIn}><QandA /></PrivateRoute>} />
+                    <Route path="/admin/adminpoint" element={<PrivateRoute isLoggedIn={isLoggedIn}><Adminpoint /></PrivateRoute>} />
+                    <Route path="/admin/exchange" element={<PrivateRoute isLoggedIn={isLoggedIn}><Exchange /></PrivateRoute>} />
+                    <Route path="/admin/capproval" element={<PrivateRoute isLoggedIn={isLoggedIn}><Capproval /></PrivateRoute>} />
+
                     {/* 보호된 라우트 설정 */}
                     <Route path="/freeboard" element={<PrivateRoute isLoggedIn={isLoggedIn}><FreeBoard /></PrivateRoute>} />
                     <Route path="/write" element={<PrivateRoute isLoggedIn={isLoggedIn}><WritePost userName={userName} /></PrivateRoute>} />
                     <Route path="/post/:id" element={<PrivateRoute isLoggedIn={isLoggedIn}><PostDetail userName={userName} /></PrivateRoute>} />
                     <Route path="/edit/:id" element={<PrivateRoute isLoggedIn={isLoggedIn}><EditPost /></PrivateRoute>} />
+                    
                    
                     {/* 마이페이지와 관련된 보호된 경로 */}
                     <Route path="/mypage" element={<PrivateRoute isLoggedIn={isLoggedIn}><MyPage parsed={parsed} onLogout={() => handleLogout(false)} /></PrivateRoute>}>

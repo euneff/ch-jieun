@@ -21,20 +21,28 @@ function Mypage() {
         <p>
           challenger를 이용해주셔서 감사합니다.
           <br />
-          오늘도 도전하는 당신, 행운을 빌게요
+          
+          <br/>
+          할 수 있다고 믿는 순간, 도전은 시작됩니다.
         </p>
         <p>도전 내역 [1]개</p>
       </div>
 
       {/* 포인트 요약 */}
       <div className="points-summary">
-        <div className="point-item">
-          <p>획득한 point</p>
-          <p>1,000원</p>
+        <div className="pi">
+            <div className="point-item">
+            <p>획득한 point</p>
+            <p>1,000원</p>
+            </div>
+            <div className="point-item">
+            <p>환전한 point</p>
+            <p>0원</p>
+            </div>
         </div>
-        <div className="point-item">
-          <p>환전한 point</p>
-          <p>0원</p>
+        <div className="buttons">
+            <button className="pointbutton" onClick={() => navigate('/mypage/pointrecharge')}>point 충전하기</button>
+            <button onClick={() => navigate('/mypage/pointexchange')}>point 환전하기</button>
         </div>
       </div>
 

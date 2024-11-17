@@ -16,7 +16,7 @@
     margin-bottom: 20px;
     padding: 10px;
     background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    border: 1px /*solid #ddd */;
     border-radius: 5px;
     line-height: 1.5;
   }
@@ -24,18 +24,29 @@
   /* 포인트 요약 */
   .points-summary {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     margin-bottom: 20px;
     padding: 10px;
     background-color: #f8f8f8;
     border: 1px solid #ddd;
     border-radius: 5px;
     text-align: center;
-  }
-  
+  } 
+
+.pointbutton{
+    margin:30px;
+}
+
+.pi{
+    display: flex;
+    justify-content: first baseline;
+}
+
   .point-item p:first-child {
     font-size: 14px;
     color: #666;
+    margin-right:50px;
+    text-align: center;
   }
   
   .point-item p:last-child {

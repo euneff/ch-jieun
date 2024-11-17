@@ -137,6 +137,13 @@
       "phoneNumber": "010-1234-5678",
       "password": "12",
       "id": "7285"
+    },
+    {
+      "id": "343f",
+      "email": "gamja@naver.com",
+      "password": "gamja@a",
+      "name": "감자",
+      "phoneNumber": "010-2345-3453"
     }
   ],
   "course": [
@@ -193,7 +200,8 @@
       "endDate": "2024-11-25",
       "status": "대기 중",
       "enrolledUsers": [
-        "7285"
+        "7285",
+        "343f"
       ]
     },
     {
@@ -212,7 +220,8 @@
       "endDate": "2024-12-06",
       "status": "대기 중",
       "enrolledUsers": [
-        "7285"
+        "7285",
+        "343f"
       ]
     },
     {

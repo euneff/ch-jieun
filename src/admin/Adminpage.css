@@ -1,0 +1,47 @@
+.admin-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.admin-page h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.admin-section {
+  margin-bottom: 40px;
+}
+
+.admin-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.admin-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.admin-section li {
+  background: #f9f9f9;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-section li button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.admin-section li button:hover {
+  background-color: #ddd;
+}
