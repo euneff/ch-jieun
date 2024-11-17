@@ -86,12 +86,13 @@ function App() {
                     <Route path="/review" element={<Review />} />
                     
                     {/* 관리자 라우트 */}
-                    <Route path="/admin/adminpage" element={<PrivateRoute isLoggedIn={isLoggedIn}><Adminpage /></PrivateRoute>} />
-                    <Route path="/admin/qanda" element={<PrivateRoute isLoggedIn={isLoggedIn}><QandA /></PrivateRoute>} />
-                    <Route path="/admin/adminpoint" element={<PrivateRoute isLoggedIn={isLoggedIn}><Adminpoint /></PrivateRoute>} />
-                    <Route path="/admin/exchange" element={<PrivateRoute isLoggedIn={isLoggedIn}><Exchange /></PrivateRoute>} />
-                    <Route path="/admin/capproval" element={<PrivateRoute isLoggedIn={isLoggedIn}><Capproval /></PrivateRoute>} />
-                    <Route path="/admin/adminnav" element={<PrivateRoute isLoggedIn={isLoggedIn}><Adminnav /></PrivateRoute>} />
+                    <Route path="/adminpage" element={<PrivateRoute isLoggedIn={isLoggedIn}><Adminpage /></PrivateRoute>}>
+                        <Route path="qanda" element={<QandA />} />
+                        <Route path="adminpoint" element={<Adminpoint />}/>
+                        <Route path="exchange" element={<Exchange />}/>
+                        <Route path="capproval" element={<Capproval/>} />
+                        <Route path="adminnav" element={<Adminnav/>}/>
+                    </Route>
 
                     {/* 보호된 라우트 설정 */}
                     <Route path="/freeboard" element={<PrivateRoute isLoggedIn={isLoggedIn}><FreeBoard /></PrivateRoute>} />

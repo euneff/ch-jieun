@@ -1,7 +1,8 @@
+/* Timeline 스타일 */
 .timeline {
-  width: 1px;
+  width: 2px;
   height: 50px;
-  background-color: #333;
+  background-color: #e0e0e0;
   position: relative;
   margin-right: 20px;
 }
@@ -10,19 +11,19 @@
   content: "";
   position: absolute;
   top: 50%;
-  left: -4px;
-  width: 8px;
-  height: 8px;
-  background-color: #333;
+  left: -6px;
+  width: 12px;
+  height: 12px;
+  background-color: #e0e0e0;
   border-radius: 50%;
   transform: translateY(-50%);
 }
 
-/* 진행률 원형 표시 스타일 */
+/* 진행률 원형 스타일 */
 .progress-circle {
   position: relative;
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   background: conic-gradient(#f6abe6 0% 63%, #ead2e1 63% 100%);
   display: flex;
@@ -33,7 +34,7 @@
 
 .progress-circle .progress-text {
   position: absolute;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: #7f86e8;
 }
@@ -41,10 +42,19 @@
 /* 챌린지 정보 스타일 */
 .challenge-info {
   flex-grow: 1;
+  color: #333;
 }
 
 .challenge-info h3 {
   font-size: 1.2rem;
   margin: 0;
   color: #333;
+}
+
+.challenge-info .rank-link {
+  font-size: 0.9rem;
+  color: #a74dd3;
+  text-decoration: none;
+  margin-top: 4px;
+  display: inline-block;
 }

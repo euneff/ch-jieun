@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './Adminpage.css';
-import QandA from './QandA.js'; // 질문답변 컴포넌트
-import Adminpoint from './Adminpoint.js'; // 포인트 관리 컴포넌트
-import Exchange from './Exchange.js'; // 환전 관리 컴포넌트
-import Capproval from './Capproval.js'; // 챌린지 관리 컴포넌트
+import QandA from './QandA'; // 질문답변 컴포넌트
+import Adminpoint from './Adminpoint'; // 포인트 관리 컴포넌트
+import Exchange from './Exchange'; // 환전 관리 컴포넌트
+import Capproval from './Capproval'; // 챌린지 관리 컴포넌트
 
 
 const Adminpage = () => {

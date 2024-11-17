@@ -59,7 +59,7 @@ function Nav({ isLoggedIn, onLogout }) {
                             <li><NavLink to="/freeboard" style={getLinkStyle}>게시판</NavLink></li>
                             <li><NavLink to="/mypage/helpCenter" style={getLinkStyle}>문의</NavLink></li>
                             <li><NavLink to="/review" style={getLinkStyle}>후기</NavLink></li>
-                            <li><NavLink to="/admin/adminpage" style={getLinkStyle}>관리자페이지</NavLink></li>
+                            <li><NavLink to="/adminpage" style={getLinkStyle}>관리자페이지</NavLink></li>
                             {isLoggedIn && (
                                 <li><NavLink to="/mypage" style={getLinkStyle}>마이페이지</NavLink></li>
 

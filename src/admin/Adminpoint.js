@@ -1,75 +1,85 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import './Adminpoint.css';
 
 const Adminpoint = () => {
-    const [points, setPoints] = useState([]); // 포인트 요청 데이터
-    const [myCourses, setMyCourses] = useState([]); // 내 코스 데이터
+    // 더미 데이터
+    const dummyCourses = [
+        {
+            id: 1,
+            title: "이불",
+            category: "집안일",
+            user: "짱구",
+            completedDate: "2024-11-01",
+            progress: 80,
+            rewardPoints: 100,
+            success: true,
+        },
+        {
+            id: 2,
+            title: "빨래",
+            category: "집안일",
+            user: "철수",
+            completedDate: "2024-10-20",
+            progress: 95,
+            rewardPoints: 150,
+            success: true,
+        },
+        {
+            id: 3,
+            title: "산책하기",
+            category: "일상",
+            user: "유리",
+            completedDate: "2024-09-15",
+            progress: 40,
+            rewardPoints: 50,
+            success: false,
+        }
+    ];
 
-    // 포인트 데이터 가져오기
-    useEffect(() => {
-        const fetchPoints = async () => {
-            try {
-                const response = await axios.get("http://localhost:5000/points");
-                setPoints(response.data);
-            } catch (error) {
-                console.error("Error fetching points:", error);
-            }
-        };
-        fetchPoints();
-    }, []);
+    const [myCourses, setMyCourses] = useState(dummyCourses); // 초기 상태를 더미 데이터로 설정
 
-    // 내 코스 데이터 가져오기
-    useEffect(() => {
-        const fetchCourses = async () => {
-            try {
-                const response = await axios.get("http://localhost:5000/courses");
-                setMyCourses(response.data);
-            } catch (error) {
-                console.error("Error fetching courses:", error);
-            }
-        };
-        fetchCourses();
-    }, []);
-
-    const handleApprove = (id) => {
-        alert(`Point request ${id} approved!`);
-    };
-
-    const handleReject = (id) => {
-        alert(`Point request ${id} rejected.`);
+    // 포인트 지급 처리
+    const handleGivePoints = async (id, user, points) => {
+        try {
+            // API 요청이 아니라 포인트 지급 성공 시 로직 처리
+            alert(`${user}에게 ${points} 포인트를 지급했습니다.`);
+            setMyCourses(myCourses.filter(course => course.id !== id)); // 지급 후 UI 업데이트
+        } catch (error) {
+            console.error("Error giving points:", error);
+            alert("포인트 지급 중 오류가 발생했습니다.");
+        }
     };
 
     return (
         <div className="admin-section">
-            <h2>포인트 추가 대기 리스트</h2>
+            <h2>성공한 도전 리스트</h2>
             <ul>
-                {points.map((point) => (
-                    <li key={point.id}>
-                        <p>{point.user}: {point.amount} 포인트 요청</p>
-                        <button onClick={() => handleApprove(point.id)}>승인</button>
-                        <button onClick={() => handleReject(point.id)}>거부</button>
-                    </li>
-                ))}
-            </ul>
-
-            <h2>내 코스 리스트</h2>
-            <ul>
-                {myCourses.map(course => (
-                    <li key={course.id}>
-                        <div className="timeline"></div>
-                        <div className="progress-circle">
-                            <span className="progress-text">63%</span>
-                        </div>
-                        <div className="challenge-info">
-                            <a href={`/course/${course.id}`}>
+                {myCourses
+                    .filter(course => course.success) // 성공한 도전만 표시
+                    .map((course) => (
+                        <li key={course.id} className="challenge-item">
+                            <div className="timeline"></div>
+                            <div
+                                className="progress-circle"
+                                style={{
+                                    background: `conic-gradient(#f6abe6 0% ${course.progress}%, #ead2e1 ${course.progress}% 100%)`,
+                                }}
+                            >
+                                <span className="progress-text">{course.progress}%</span>
+                            </div>
+                            <div className="challenge-info">
                                 <h3>{course.title}</h3>
-                            </a>
-                            <p className="description">{course.description}</p>
-                            <p className="ranking">현재 순위 24위 &gt;</p>
-                        </div>
-                    </li>
-                ))}
+                                <p>카테고리: {course.category}</p>
+                                <p>참여자: {course.user}</p>
+                                <p>성공 날짜: {course.completedDate}</p>
+                                <button
+                                    onClick={() => handleGivePoints(course.id, course.user, course.rewardPoints)}
+                                >
+                                    {course.rewardPoints} 포인트 지급
+                                </button>
+                            </div>
+                        </li>
+                    ))}
             </ul>
         </div>
     );
