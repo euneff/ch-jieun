@@ -82,10 +82,6 @@ function Mypage() {
             <h4>BOARD</h4>
             <p>도전자님께서 작성하신 게시물을 관리하실 수 있습니다.</p>
           </div>
-          <div className="menu-item">
-            <h4>ADDRESS</h4>
-            <p>배송지를 등록하고 관리하실 수 있습니다.</p>
-          </div>
         </div>
       </div>
     </div>

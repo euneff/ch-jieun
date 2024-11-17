@@ -69,6 +69,8 @@
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
+    text-align: center;
+    padding-top: 100px;
   }
   
   .order-status h3 {

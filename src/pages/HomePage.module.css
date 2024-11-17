@@ -5,19 +5,17 @@
     bottom: 0;
     left: 0;
     z-index: -1;
-    background:
-            linear-gradient(
-                    135deg,
-                    #f9f9f9 48%,
-                    #ebebeb 48%,
-                    #ebebeb 78%,
-                    #f9f9f9 78%
-            );
+    background-image: url('../assets/background1.jpg'); /* 배경 이미지 경로 설정 */
+    background-size :contain; /* 배경 이미지 크기 조정 */
+    background-position: center center; /* 배경 이미지 위치 설정 */
+    opacity: 0.9; /* 배경 이미지의 투명도 조정 */
 }
 
 .container {
     display: flex;
     margin: 120px auto 226px;
+    position: relative; /* .bg와 텍스트를 겹치게 하려면 position 설정 */
+    z-index: 1; /* 텍스트가 배경 위에 오도록 설정 */
 }
 
 .texts {
@@ -26,12 +24,15 @@
     flex-direction: column;
     justify-content: center;
     margin-right: 100px;
+    color: white; /* 텍스트 색상 변경 */
+    z-index: 2; /* 텍스트가 배경 위에 오도록 설정 */
 }
 
 .heading {
     margin: 15px 0;
     font-weight: 500;
     line-height: 1.39;
+    font-size: 36px; /* 글씨 크기 조정 */
 }
 
 .description {
