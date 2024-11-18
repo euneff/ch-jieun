@@ -19,7 +19,7 @@ function Mypage() {
       {/* 상단 환영 메시지 */}
       <div className="welcome-message">
         <p>
-          challenger를 이용해주셔서 감사합니다.
+          challengers를 이용해주셔서 감사합니다.
           <br />
           
           <br/>

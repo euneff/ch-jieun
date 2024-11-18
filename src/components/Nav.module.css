@@ -1,34 +1,28 @@
-
 .nav {
-    position: relative;
+    position: fixed; /* 화면 왼쪽에 고정 */
+    top: 0;
+    left: 0;
+    width: 300px; /* 네비게이션 바 너비 */
+    height: 100vh; /* 화면 전체 높이 */
     z-index: 1;
     padding: 15px 0;
     background-color: #fff;
     box-shadow: var(--box-shadow);
     display: flex;
-    align-items: center;
-    justify-content: center
+    flex-direction: column; /* 세로 정렬 */
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .logo {
-    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-
-}
-
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    margin-bottom: 20px; /* 로고와 메뉴 간 간격 */
 }
 
 .img {
-    width: 150px;
-    display:flex;
-    flex-direction: row;
-    justify-content: center; /* 로고 크기 지정 */
+    width: 150px; /* 로고 크기 */
 }
 
 .sidebarToggle {
@@ -48,10 +42,12 @@ ul.menu {
     padding: 0;
     margin: 0;
     list-style: none;
+    width: 100%; /* 메뉴가 네비게이션 바 너비에 맞게 */
 }
 
 ul.menu > li {
     margin: 10px 0;
+    width: 100%; /* 항목이 네비게이션 바 너비에 맞게 */
 }
 
 .sidebar {
@@ -73,8 +69,7 @@ ul.menu > li {
     list-style: none;
     padding: 20px;
     margin: 0;
-    display:flex;
-    flex-direction: row;
+    display: flex;
     flex-direction: column;
 }
 
@@ -116,6 +111,9 @@ ul.menu a {
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
+    width: 100%; /* 링크가 네비게이션 바 너비에 맞게 */
+    display: block;
+    padding: 10px; /* 클릭 영역 확대 */
 }
 
 ul.menu a:hover,

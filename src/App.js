@@ -75,6 +75,7 @@ function App() {
         <>
             <Nav className={styles.nav} isLoggedIn={isLoggedIn} onLogout={handleLogout} />
             <div className={styles.body}>
+            <div style={{ marginLeft: '300px', width: 'calc(100% - 300px)', padding: '20px' }}>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
@@ -114,6 +115,7 @@ function App() {
                     {/* 종료된 도전 페이지 라우트 추가 */}
                     <Route path="/completedchallenges" element={<PrivateRoute isLoggedIn={isLoggedIn}><CompletedChallenges /></PrivateRoute>} />
                 </Routes>
+                </div>
             </div>
 
             {/* 메인 페이지에서만 Footer 표시 */}
