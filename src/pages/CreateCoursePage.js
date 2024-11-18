@@ -66,23 +66,23 @@ const CreateCoursePage = () => {
             <h2 className="title">도전 생성</h2>
             <form onSubmit={handleSubmit} className="create-course-form">
                 <label>
-                    제목:
+                    제목
                     <input type="text" name="title" value={courseData.title} onChange={handleChange} required />
                 </label>
                 <label>
-                    유형:
+                    유형
                     <input type="text" name="type" value={courseData.type} onChange={handleChange} required />
                 </label>
                 <label>
-                    참가비:
+                    참가비
                     <input type="text" name="money" value={courseData.money} onChange={handleChange} required />
                 </label>
                 <label>
-                    진행률:
+                    진행률
                     <input type="text" name="progress" value={courseData.progress} onChange={handleChange} required />
                 </label>
                 <label>
-                    시작 날짜:
+                    시작 날짜
                     <input
                         type="date"
                         name="startDate"
@@ -93,19 +93,18 @@ const CreateCoursePage = () => {
                     />
                 </label>
                 <label>
-                    기간:
+                    기간
                     <select name="duration" value={courseData.duration} onChange={handleChange} required>
                         <option value="">선택해주세요</option>
+                        <option value="3">3일</option>
+                        <option value="4">4일</option>
+                        <option value="5">5일</option>
+                        <option value="6">6일</option>
                         <option value="7">7일</option>
-                        <option value="30">30일</option>
                     </select>
                 </label>
-                <label>
-                    카테고리:
-                    <input type="text" name="category" value={courseData.category} onChange={handleChange} required />
-                </label>
-                <label>
-                    설명:
+                  <label>
+                    설명
                     <textarea name="description" value={courseData.description} onChange={handleChange} required />
                 </label>
                 <button type="submit" disabled={isSubmitting}>도전 생성</button>

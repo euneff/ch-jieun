@@ -30,7 +30,7 @@ import QandA from "./admin/QandA";
 import Adminpoint from "./admin/Adminpoint";
 import Exchange from "./admin/Exchange";
 import Capproval from "./admin/Capproval";
-import Adminnav from './admin/Adminnav';
+import Modal from "./admin/Modal";
 
 
 function App() {
@@ -91,7 +91,7 @@ function App() {
                         <Route path="adminpoint" element={<Adminpoint />}/>
                         <Route path="exchange" element={<Exchange />}/>
                         <Route path="capproval" element={<Capproval/>} />
-                        <Route path="adminnav" element={<Adminnav/>}/>
+                        <Route path="modal" element={<Modal/>}/>
                     </Route>
 
                     {/* 보호된 라우트 설정 */}

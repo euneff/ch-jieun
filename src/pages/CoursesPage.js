@@ -1,86 +1,58 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import axios from 'axios';
+import './CoursesPage.css';
 
-// 더미 데이터
-const courseList = [
-    {
-        id: 1,
-        title: "11월 도전 3개 완료하기",
-        startDate: "2023-11-01",
-        endDate: "2023-11-30",
-        users: [
-            {
-                id: 1,
-                name: "홍길동",
-                progress: [
-                    { step: 1, status: "pending" },
-                    { step: 2, status: "pending" },
-                    { step: 3, status: "pending" },
-                ],
-            },
-            {
-                id: 2,
-                name: "김철수",
-                progress: [
-                    { step: 1, status: "complete" },
-                    { step: 2, status: "pending" },
-                    { step: 3, status: "pending" },
-                ],
-            },
-        ],
-    },
-    {
-        id: 2,
-        title: "11월 10일 챌린지",
-        startDate: "2023-11-01",
-        endDate: "2023-11-10",
-        users: [
-            {
-                id: 3,
-                name: "이영희",
-                progress: [
-                    { step: 1, status: "complete" },
-                    { step: 2, status: "complete" },
-                    { step: 3, status: "pending" },
-                ],
-            },
-        ],
-    },
-];
+const CoursesPage = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [courseList, setCourseList] = useState([]);
 
-const ChallengeApproval = () => {
-    const [selectedCourse, setSelectedCourse] = useState(null);
-    const [courseUsers, setCourseUsers] = useState([]);
+    // 데이터를 새로 불러오는 함수
+    const fetchCourses = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/course');
+            setCourseList(response.data);
+        } catch (error) {
+            console.error("Error fetching courses:", error);
+        }
+    };
 
-    // 카드 클릭 시 사용자 목록 표시
+    useEffect(() => {
+        // 초기 로드 또는 새로고침 시 전체 데이터를 가져옴
+        fetchCourses();
+    }, []);
+
+    useEffect(() => {
+        // 새로운 도전이 추가되었을 때만 업데이트
+        if (location.state?.newCourse && !courseList.some(course => course.id === location.state.newCourse.id)) {
+            setCourseList(prevCourses => [location.state.newCourse, ...prevCourses]);
+        }
+
+        // 삭제된 도전이 있을 때만 업데이트
+        if (location.state?.deletedCourseId) {
+            setCourseList(prevCourses =>
+                prevCourses.filter(course => course.id !== location.state.deletedCourseId)
+            );
+        }
+    }, [location.state]);
+
     const handleCardClick = (courseId) => {
-        const selected = courseList.find(course => course.id === courseId);
-        setSelectedCourse(selected);
-        setCourseUsers(selected ? selected.users : []);
+        navigate(`/course/${courseId}`);
     };
 
-    // 진행 중인 첫 번째 단계 찾기
-    const findNextStep = (progress) => {
-        return progress.find(step => step.status === "pending");
-    };
-
-    // 사용자의 단계 승인 처리
-    const handleApproveStep = (userId, step) => {
-        const updatedUsers = courseUsers.map(user => {
-            if (user.id === userId) {
-                const stepIndex = user.progress.findIndex(s => s.step === step.step);
-                if (stepIndex !== -1) {
-                    user.progress[stepIndex].status = "complete"; // 승인된 단계는 "complete"
-                }
-            }
-            return user;
-        });
-        setCourseUsers(updatedUsers);
-        alert(`사용자 ${userId}의 ${step.step}단계 인증이 승인되었습니다.`);
+    const handleCreateChallenge = () => {
+        navigate('/create-course');
     };
 
     return (
-        <div className="admin-section">
-            <h2>도전 목록</h2>
+        <div className="courses-page">
+            <div className="course">
+                <h1>도전 목록</h1>
+                <button className="create-challenge-button" onClick={handleCreateChallenge}>
+                    도전 생성
+                </button>
+            </div>
             <div className="courses-grid">
                 {courseList.map(course => (
                     <div
@@ -89,7 +61,7 @@ const ChallengeApproval = () => {
                         onClick={() => handleCardClick(course.id)}
                         style={{ cursor: 'pointer' }}
                     >
-                        <div className="course-badge">
+                        <div className="course-badge"> {/* 뱃지 스타일 */}
                             <span>11월</span>
                         </div>
                         <h3 className="course-title">{course.title || "11월 도전 3개 완료하기"}</h3>
@@ -97,37 +69,18 @@ const ChallengeApproval = () => {
                             {course.startDate || "11월 1일"} ~ {course.endDate || "11월 30일"}
                         </div>
                         <p className="course-description">도전을 성공하고 보상금을 얻어보세요!</p>
+                        <div className="course-missions">
+                            <p>challenge</p>
+                        </div>
+                        <div className="course-rewards">
+                            <p>보증금</p>
+                            <span>10,000원</span>
+                        </div>
                     </div>
                 ))}
             </div>
-
-            {/* 도전 선택 시 사용자 목록 및 승인/거부 기능 표시 */}
-            {selectedCourse && (
-                <div className="course-users">
-                    <h3>{selectedCourse.title} - 사용자 목록</h3>
-                    <ul>
-                        {courseUsers.map(user => (
-                            <li key={user.id}>
-                                <p>{user.name}</p>
-                                <div>
-                                    {user.progress.map((step, index) => (
-                                        <div key={step.step}>
-                                            <p>단계 {step.step}: {step.status}</p>
-                                            {step.status === "pending" && (
-                                                <button onClick={() => handleApproveStep(user.id, step)}>
-                                                    {step.step}단계 승인
-                                                </button>
-                                            )}
-                                        </div>
-                                    ))}
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
         </div>
     );
 };
 
-export default ChallengeApproval;
+export default CoursesPage;

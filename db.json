@@ -179,7 +179,7 @@
       "authorId": "7285",
       "authorName": "고구마",
       "endDate": "2024-11-17",
-      "status": "진행중",
+      "status": "종료됨",
       "enrolledUsers": [
         "7285"
       ]
@@ -198,7 +198,7 @@
       "authorId": "7285",
       "authorName": "고구마",
       "endDate": "2024-11-25",
-      "status": "대기 중",
+      "status": "진행중",
       "enrolledUsers": [
         "7285",
         "343f"
